@@ -31,6 +31,7 @@ func (h *handler) OnChangeInstallSUC(cluster *rancherv1.Cluster, status rancherv
 					"global": map[string]interface{}{
 						"systemDefaultRegistry": settings.SystemDefaultRegistry.Get(),
 					},
+					"systemUpgradeJobImagePullPolicy": "IfNotPresent",
 				},
 			},
 			Targets: []v1alpha1.BundleTarget{
