@@ -107,5 +107,13 @@ func (h *handler) onSetting(key string, setting *v3.Setting) (*v3.Setting, error
 		fleetChartValues["gitjob"] = gitjobChartValues
 	}
 
+	fleetChartValues["image"] = map[string]interface{}{
+		"tag": "v0.3.6-rc4",
+	}
+
+	fleetChartValues["agentImage"] = map[string]interface{}{
+		"tag": "v0.3.6-rc4",
+	}
+
 	return setting, h.manager.Ensure(fleetChart.ReleaseNamespace, fleetChart.ChartName, settings.FleetMinVersion.Get(), fleetChartValues, true)
 }
